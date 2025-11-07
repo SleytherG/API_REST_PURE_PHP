@@ -1,0 +1,33 @@
+# Archivos y carpetas de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env
+.env.*
+
+# Dependencias de Composer
+/vendor/
+
+# Archivos de logs
+*.log
+
+# Archivos de caché
+/cache/
+/tmp/
+/*.cache
+
+# Configuración de IDEs
+.idea/
+.vscode/
+
+# Archivos de bases de datos y volúmenes
+db_data/
+*.sql
+
+# Archivos generados por Docker
+*.pid
+
+# Otros archivos temporales
+*.swp
+*.swo

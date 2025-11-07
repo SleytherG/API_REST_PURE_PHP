@@ -1,0 +1,9 @@
+{
+    "connection": {
+        "server": "localhost",
+        "user": "postgres",
+        "password": "",
+        "database": "apirest",
+        "port": 5432
+    }
+}
