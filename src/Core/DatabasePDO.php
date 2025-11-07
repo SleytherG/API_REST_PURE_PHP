@@ -5,21 +5,15 @@ class DatabasePDO {
     private static ?PDO $connection = null;
 
     public static function getConnection(
-        ?array $config = null,
         string $driver = 'pgsql',
         array $options = [],
     ): PDO {
         if (self::$connection === null) {
-            if ($config === null) {
-                $config = require __DIR__ . '/../Config/config.php';
-                $config = $config['db'];
-            }
-            $host = $config['host'] ?? 'localhost';
-            $port = $config['port'] ?? '';
-            $dbname = $config['dbname'] ?? '';
-            $user = $config['user'] ?? '';
-            $password = $config['password'] ?? '';
-
+            $host = getenv('DB_HOST') ?: 'localhost';
+            $port = getenv('DB_PORT') ?: '5432';
+            $dbname = getenv('DB_NAME') ?: 'apirest';
+            $user = getenv('DB_USER') ?: 'postgres';
+            $password = getenv('DB_PASSWORD') ?: 'postgres';
             switch ($driver) {
                 case 'mysql':
                 case 'mariadb':
@@ -45,9 +39,5 @@ class DatabasePDO {
         }
         return self::$connection;
     }
-
-
-
-
 }
 
